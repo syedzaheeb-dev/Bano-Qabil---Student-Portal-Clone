@@ -1,0 +1,229 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Lora, Georgia, serif;
+}
+
+:root {
+    --light-text: rgba(222, 230, 236, 0.662);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 550px 1fr;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.first-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.first-section video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+    filter: brightness(50%);
+}
+
+.first-section .headings-container {
+    background: linear-gradient(135deg, #1a9860 0%, #165a44 100%);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: white;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.first-section .headings-container h4 {
+    font-family: JetBrains Mono, ui-monospace, monospace;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    color: #e0ab5c;
+}
+
+.first-section .headings-container h2 {
+    font-size: 2.4rem;
+    text-shadow: 1px 0px 23px #ffffff;
+}
+
+.first-section .headings-container p {
+    line-height: 25px;
+    color: var(--light-text);
+}
+
+.login-card {
+    background-color: #191d1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-card .card {
+    width: 350px;
+    min-height: 400px;
+    background-color: #242b2d;
+    padding: 25px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    box-shadow: 1px 2px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.login-card .card .image {
+    display: flex;
+    justify-content: center;
+}
+
+.login-card .card .headings h3 {
+    color: white;
+    margin: 0;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.login-card .card .headings p {
+    text-align: center;
+    margin: 0;
+    margin-top: 3px;
+    color: var(--light-text);
+}
+
+.login-card .card .inputs h3 {
+    color: var(--light-text);
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+.login-card .card .inputs #student_id,
+.login-card .card .inputs #pin {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    outline: 1px solid grey;
+    color: white;
+}
+
+.login-card .card .inputs #student_id:hover,
+.login-card .card .inputs #pin:hover {
+    outline: 1px solid #69a98a;
+}
+
+.login-card .card .inputs #student_id:focus,
+.login-card .card .inputs #pin:focus {
+    color: white;
+    outline: 1px solid #69a98a;
+}
+
+.login-card .card .btn {
+    margin-top: 10px;
+}
+
+.login-card .card .btn #id_check {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid green;
+    border-radius: 15px;
+    color: white;
+    background-color: #69a98a;
+    transition: 0.3s ease all;
+}
+
+.login-card .card .btn #id_check:hover {
+    background-color: #191d1e;
+    cursor: pointer;
+}
+
+.login-card .card .create-account-link {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.login-card .card .create-account-link p {
+    font-family: 'Gill Sans';
+    color: var(--light-text);
+    margin: 0;
+    margin-right: 5px;
+}
+
+@media (max-width: 992px) {
+    main {
+        grid-template-columns: 420px 1fr;
+    }
+
+    .first-section .headings-container h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .first-section {
+        min-height: 300px;
+    }
+
+    .first-section .headings-container {
+        padding: 35px 20px;
+        text-align: center;
+    }
+
+    .first-section .headings-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-card {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .first-section .headings-container h4 {
+        font-size: 1.1rem;
+    }
+
+    .first-section .headings-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .login-card .card {
+        width: 100%;
+        max-width: 350px;
+        padding: 20px;
+        min-height: 380px;
+    }
+
+    .login-card .card .btn #id_check {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}

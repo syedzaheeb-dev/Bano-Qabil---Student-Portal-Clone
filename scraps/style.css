@@ -1,0 +1,401 @@
+/* Original styling preserved. Responsive rules are added at the bottom. */
+
+:root {
+    /* Background Colors */
+    --bg-dark: #0f1416;
+    /* Main page background */
+    --bg-sidebar: #12181a;
+    /* Left sidebar background */
+    --bg-card: #1c2628;
+    /* Cards and containers background */
+    --bg-card-hover: #223033;
+    /* Hover state for cards/nav links */
+
+    /* Brand & Accent Colors */
+    --accent-green: #37d686;
+    /* Brand logo, status dot, icon highlights */
+    --accent-green-bg: #1e3a30;
+    /* Secondary green icon background container */
+    --accent-coral: #e06d53;
+    /* Attendance percentage, progress bar fill, alerts */
+    --accent-coral-bg: #382424;
+    /* Alert box background state */
+
+    /* Text & Icon Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #8c9ba5;
+    --text-muted: #57656f;
+    --text-coral: #e06d53;
+
+    /* UI Borders & Dividers */
+    --border-color: #263337;
+    --progress-track: #2a383c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+}
+
+main {
+    color: white;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/*
+=========================================================================================================
+SideBar
+=========================================================================================================
+*/
+
+.sidebar-section {
+    width: 100%;
+    min-height: 100%;
+    border: 1px solid var(--border-color);
+}
+
+.sidebar-section nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .logo {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px 0;
+
+        img {
+            padding: 10px;
+        }
+
+        h3 {
+            font-family: sans-serif;
+            margin: 0;
+            margin-top: 25px;
+            text-align: center;
+            color: var(--accent-green);
+        }
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 70vh;
+        padding: 0 20px;
+        margin: 0;
+        align-items: left;
+
+        li {
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 1.2rem;
+            transition: 0.3s ease all;
+
+            a {
+                padding: 10px;
+                color: var(--text-muted);
+                text-decoration: none;
+                transition: 0.3s ease all;
+            }
+        }
+
+        li:hover {
+            transform: scale(1.04);
+        }
+
+        li:hover a {
+            color: white;
+        }
+    }
+
+    #current-selected {
+        font-family: sans-serif;
+        font-size: 1.2rem;
+        transition: 0.3s ease all;
+        padding: 10px;
+        background-color: var(--bg-card-hover);
+        border-radius: 5px;
+
+        a {
+            padding: 10px;
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: 0.3s ease all;
+        }
+    }
+
+    #current-selected:hover a {
+        color: white;
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+
+    #logout {
+        text-align: center;
+        padding: 12px 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        width: 80%;
+        background-color: var(--bg-card-hover);
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            a {
+                padding: 10px;
+                text-decoration: none;
+                color: var(--text-coral);
+            }
+        }
+    }
+
+    #logout:hover {
+        border: 1px solid red;
+    }
+}
+
+/*
+==================================================================================
+Main - Section
+==================================================================================
+*/
+
+.main-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        background-color: var(--bg-card);
+        padding: 40px;
+        border: 1px dashed var(--bg-card);
+        border-radius: 25px;
+
+        h1 {
+            font-family: sans-serif;
+            color: var(--accent-green);
+            margin: 15px;
+        }
+
+        ul {
+            display: flex;
+            font-family: sans-serif;
+            justify-content: space-around;
+            gap: 10px;
+
+            li {
+                color: var(--text-secondary);
+            }
+        }
+    }
+}
+
+/*
+==================================================================================
+Responsive adjustments — layout only; original colors and visual styling retained
+==================================================================================
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    min-width: 0;
+}
+
+.main-section {
+    min-width: 0;
+}
+
+.main-section > div {
+    width: min(100% - 40px, 900px);
+    max-width: 100%;
+}
+
+.main-section > div ul {
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .sidebar-section nav ul {
+        padding: 0 12px;
+    }
+
+    .sidebar-section nav ul li,
+    .sidebar-section nav #current-selected {
+        font-size: 1rem;
+    }
+
+    .main-section > div {
+        padding: 30px;
+    }
+
+    .main-section > div h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Phones and portrait tablets: sidebar becomes a top navigation area */
+@media (max-width: 700px) {
+    main {
+        grid-template-columns: minmax(0, 1fr);
+        align-content: start;
+    }
+
+    .sidebar-section {
+        min-height: auto;
+    }
+
+    .sidebar-section nav {
+        gap: 8px;
+    }
+
+    .sidebar-section nav .logo {
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .sidebar-section nav .logo h3 {
+        margin-top: 0;
+    }
+
+    .sidebar-section nav ul {
+        min-height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 10px;
+    }
+
+    .sidebar-section nav ul li,
+    .sidebar-section nav #current-selected {
+        padding: 7px 9px;
+        font-size: 0.95rem;
+    }
+
+    .sidebar-section nav ul li a,
+    .sidebar-section nav #current-selected a {
+        padding: 2px;
+    }
+
+    .button {
+        padding: 5px 0 12px;
+    }
+
+    .button #logout {
+        width: auto;
+        min-width: 130px;
+    }
+
+    .main-section {
+        height: auto;
+        min-height: 60vh;
+        padding: 30px 16px;
+    }
+
+    .main-section > div {
+        width: 100%;
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .main-section > div h1 {
+        margin: 8px 0 18px;
+        font-size: 1.4rem;
+        line-height: 1.35;
+    }
+
+    .main-section > div ul {
+        justify-content: flex-start;
+        gap: 10px 24px;
+        padding-left: 20px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .sidebar-section nav .logo img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .sidebar-section nav .logo h3 {
+        font-size: 1.05rem;
+    }
+
+    .sidebar-section nav ul {
+        gap: 2px;
+        padding: 6px;
+    }
+
+    .sidebar-section nav ul li,
+    .sidebar-section nav #current-selected {
+        padding: 6px 7px;
+        font-size: 0.85rem;
+    }
+
+    .main-section {
+        padding: 22px 12px;
+    }
+
+    .main-section > div {
+        padding: 18px;
+    }
+
+    .main-section > div h1 {
+        font-size: 1.2rem;
+    }
+
+    .main-section > div ul {
+        font-size: 0.9rem;
+        gap: 9px 18px;
+    }
+}
+
+/* Very narrow phones */
+@media (max-width: 360px) {
+    .sidebar-section nav ul li,
+    .sidebar-section nav #current-selected {
+        font-size: 0.78rem;
+        padding: 5px 6px;
+    }
+
+    .main-section > div {
+        padding: 15px;
+    }
+
+    .main-section > div h1 {
+        font-size: 1.08rem;
+    }
+}

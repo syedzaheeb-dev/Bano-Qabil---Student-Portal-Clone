@@ -1,0 +1,508 @@
+:root {
+    /* Background Colors */
+    --bg-dark: #0f1416;
+    /* Main page background */
+    --bg-sidebar: #12181a;
+    /* Left sidebar background */
+    --bg-card: #1c2628;
+    /* Cards and containers background */
+    --bg-card-hover: #223033;
+    /* Hover state for cards/nav links */
+
+    /* Brand & Accent Colors */
+    --accent-green: #37d686;
+    /* Brand logo, status dot, icon highlights */
+    --accent-green-bg: #1e3a30;
+    /* Secondary green icon background container */
+    --accent-coral: #e06d53;
+    /* Attendance percentage, progress bar fill, alerts */
+    --accent-coral-bg: #382424;
+    /* Alert box background state */
+
+    /* Text & Icon Colors */
+    --text-primary: #ffffff;
+    /* Main headings and white text */
+    --text-secondary: #8c9ba5;
+    /* Subtitles, labels, secondary text */
+    --text-muted: #57656f;
+    /* Section dividers, muted text */
+    --text-coral: #e06d53;
+    /* Alert text tone */
+
+    /* UI Borders & Dividers */
+    --border-color: #263337;
+    /* Card borders and horizontal rule dividers */
+    --progress-track: #2a383c;
+    /* Background track of progress bar */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+}
+
+
+main {
+    color: white;
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    width: 100%;
+    min-height: 100vh;
+}
+
+/*
+=========================================================================================================
+SideBar
+=========================================================================================================
+*/
+
+.sidebar-section {
+    width: 100%;
+    min-height: 100%;
+    border: 1px solid var(--border-color);
+}
+
+.sidebar-section nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+    .logo {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px 0;
+
+        img {
+            padding: 10px;
+        }
+
+        h3 {
+            font-family: sans-serif;
+            margin: 0;
+            margin-top: 25px;
+            text-align: center;
+            color: var(--accent-green);
+
+        }
+
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 70vh;
+        padding: 0 20px;
+        margin: 0;
+        align-items: left;
+
+
+
+
+        li {
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 1.2rem;
+            transition: 0.3s ease all;
+
+            a {
+                padding: 10px;
+                color: var(--text-muted);
+                text-decoration: none;
+                transition: 0.3s ease all;
+            }
+        }
+
+        li:hover {
+            transform: scale(1.04);
+        }
+
+        li:hover a {
+            color: white;
+        }
+    }
+
+    #current-selected {
+        font-family: sans-serif;
+        font-size: 1.2rem;
+        transition: 0.3s ease all;
+        padding: 10px;
+        background-color: var(--bg-card-hover);
+        border-radius: 5px;
+        transition: 0.3s ease all;
+
+
+        a {
+            padding: 10px;
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: 0.3s ease all;
+        }
+    }
+
+    #current-selected:hover a {
+        color: white;
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+
+    /* margin-bottom: 10px; */
+    #logout {
+        text-align: center;
+        padding: 12px 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        width: 80%;
+        background-color: var(--bg-card-hover);
+
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            a {
+                padding: 10px;
+                text-decoration: none;
+                color: var(--text-coral);
+
+            }
+        }
+
+    }
+
+    #logout:hover {
+
+        border: 1px solid red;
+    }
+}
+
+
+
+/* 
+================================================================================================
+Main
+================================================================================================
+*/
+.header {
+    padding: 30px;
+    min-width: 0;
+}
+
+.detail-card-div {
+    /* background-color: var(--accent-green-bg); */
+    display: flex;
+    padding: 20px;
+    width: 33%;
+    border-radius: 25px;
+    gap: 20px;
+    align-items: center;
+    min-width: 0;
+
+    h2 {
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .image {
+        background-color: var(--accent-green);
+        border-radius: 15px;
+        padding: 14px 15px;
+        flex-shrink: 0;
+    }
+
+    .text-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+    }
+
+    p {
+        color: var(--text-secondary);
+    }
+
+    #attendance-rate {
+        color: var(--text-coral);
+    }
+
+    #study-guid-link {
+        text-decoration: none;
+
+        p {
+            color: rgb(175, 175, 3) !important;
+        }
+    }
+}
+
+
+/* 
+================================================================================================
+Main - Card
+================================================================================================
+*/
+
+.main-div-card {
+    padding: 20px;
+    min-width: 0;
+
+    .parent {
+        font-family: Lora, Georgia, serif;
+        box-shadow: 2px 7px 18px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background-color: var(--bg-card);
+        transition: 0.2s ease all;
+        border: 1px solid var(--bg-card);
+        min-width: 0;
+    }
+
+    .icon {
+        font-family: sans-serif;
+        padding: 10px;
+        background-color: var(--accent-green);
+        border-radius: 15px;
+        flex-shrink: 0;
+
+        h3 {
+            font-size: 1.4rem;
+            color: #105230;
+        }
+    }
+
+    .first-child {
+        gap: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+
+        .first-heading {
+            color: rgb(171, 171, 14);
+        }
+
+        .second-heading {
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h3 {
+                color: var(--text-secondary);
+            }
+
+            p {
+                color: var(--text-muted);
+            }
+        }
+    }
+
+    .parent:hover{
+        border: 1px solid var(--accent-green);
+        transform: scale(1.01);
+    }
+}
+
+
+/*
+=========================================================================================================
+Responsive Layout
+=========================================================================================================
+*/
+
+/* Laptops and smaller desktop screens */
+@media (max-width: 1100px) {
+    .detail-card-div {
+        width: 50%;
+    }
+
+    .header {
+        padding: 24px;
+    }
+
+    .main-div-card {
+        padding: 16px;
+
+        .parent {
+            padding: 24px;
+        }
+    }
+}
+
+/* Tablets: move the sidebar above the page content */
+@media (max-width: 800px) {
+    main {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 100vh;
+    }
+
+    .sidebar-section {
+        min-height: auto;
+        width: 100%;
+    }
+
+    .sidebar-section nav {
+        .logo {
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+
+            img {
+                max-width: 70px;
+                height: auto;
+            }
+
+            h3 {
+                margin-top: 0;
+            }
+        }
+
+        ul {
+            min-height: auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 12px;
+
+            li {
+                padding: 6px;
+                font-size: 1rem;
+
+                a {
+                    padding: 8px;
+                }
+            }
+        }
+
+        #current-selected {
+            font-size: 1rem;
+            padding: 8px;
+        }
+    }
+
+    .button {
+        padding: 0 12px 14px;
+
+        #logout {
+            width: auto;
+            min-width: 150px;
+        }
+    }
+
+    .header {
+        padding: 22px;
+    }
+
+    .detail-card-div {
+        width: 50%;
+        padding: 16px;
+        gap: 14px;
+    }
+}
+
+/* Large phones and small tablets */
+@media (max-width: 600px) {
+    .header {
+        padding: 16px;
+    }
+
+    .detail-card-div {
+        width: 100%;
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .main-div-card {
+        padding: 12px;
+
+        .parent {
+            padding: 20px;
+            gap: 14px;
+        }
+
+        .first-child {
+            gap: 12px;
+            padding: 6px;
+        }
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    .sidebar-section nav {
+        .logo {
+            img {
+                max-width: 58px;
+            }
+        }
+
+        ul {
+            padding: 8px 6px;
+            gap: 2px;
+
+            li {
+                font-size: 0.9rem;
+                padding: 4px;
+
+                a {
+                    padding: 6px;
+                }
+            }
+        }
+    }
+
+    .header {
+        padding: 12px;
+    }
+
+    .detail-card-div {
+        gap: 10px;
+        padding: 12px;
+
+        .image {
+            padding: 10px;
+        }
+    }
+
+    .main-div-card {
+        padding: 8px;
+
+        .parent {
+            padding: 14px;
+            gap: 10px;
+        }
+
+        .icon {
+            padding: 8px;
+
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        .first-child {
+            padding: 4px;
+        }
+    }
+}
